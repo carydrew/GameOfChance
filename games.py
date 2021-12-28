@@ -115,9 +115,15 @@ if __name__ == "__main__":
     while money > 0 and play == True:
 
         print("Which Game would you like to play?\n")
-        print("1: Coin Flip\n2: Dice roll\n3: High Card\n 4: Roulette\n")
+        print("1: Coin Flip\n2: Dice roll\n3: High Card\n4: Roulette\n")
         choice = input("Enter the numerical value of your choice: ")
         bet = input("You currently have {} money.\nYour bet is: ".format(money))
+        choice = int(choice)
+        bet = int(bet)
+
+        if bet > money:
+            print("You don't have that much money. Please make a bet with the money you do have.")
+            continue
 
         if choice == 1:
             print("You choose Coin Flip!\n")
@@ -132,10 +138,10 @@ if __name__ == "__main__":
             res = highCard(bet)
         elif choice == 4:
             print("You choose Roulette!\n")
-            print("\nYour bet choices are: Red, Black, Even, Odd, 1st half, 2nd half   - Pays 1 to 1")
-            print("\n1st dozen, 2nd dozen, 3rd dozen, 1st column, 2nd column, 3rd column   - Pays 2 to 1")
-            print("\nAny single number 00 or 0 - 36   - Pays 35 to 1")
-            guess = input("What would you like your bet to be?  ")
+            print("Your bet choices are: \nRed, Black, Even, Odd, 1st half, 2nd half   - Pays 1 to 1")
+            print("1st dozen, 2nd dozen, 3rd dozen, 1st column, 2nd column, 3rd column   - Pays 2 to 1")
+            print("Any single number 00 or 0 - 36   - Pays 35 to 1")
+            guess = input("\nWhat would you like your bet to be?  ")
             res = roulette(guess, bet)
 
 
